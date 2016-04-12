@@ -23,6 +23,12 @@ angular.module('yyzAServiceMod', [])
             'cancelOrder': function (params) {
                 return $http.put(baseUrl + 'api/Order/GodCancelOrderForm',params);
             },
+            'shopCancelOrder': function (params) {
+                return $http.put(baseUrl + 'api/Order/ShopCancelOrderForm',params);
+            },
+            'orderStausInfo': function (params) {
+                return $http.get(baseUrl + 'api/Order/OrderProcessLogInfo?id='+params);
+            },
             'payOrder': function (params) {
                 return $http.put(baseUrl + 'api/Order/GodCancelOrderForm',params);
             }

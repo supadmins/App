@@ -33,12 +33,30 @@
             </div>
         </div>
         <div class="bottom">
-        <span ng-click="cancelOrder(47)">
-            取消订单
-        </span>
-        <span>
-            立即支付
-        </span>
+            <div ng-if="item.orderStatus==1">
+                <span ng-click="cancelOrder(47)">取消订单
+                </span>
+                <span>
+                    立即支付
+                </span>
+            </div>
+            <div ng-if="item.OrderStatusEnum==2">
+                <span ng-click="cancelOrder(47)">取消订单
+                </span>
+                <span>
+                    立即支付
+                </span>
+            </div>
+            <div ng-if="item.OrderStatusEnum==1">
+                <span ng-click="cancelOrder(47)">取消订单
+                </span>
+                <span>
+                    立即支付
+                </span>
+                <span>
+                    xxx
+                </span>
+            </div>
         </div>
     </div>
 </div>

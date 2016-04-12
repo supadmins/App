@@ -636,7 +636,7 @@ angular.module('yyzWebApp', [
                 }
             })
     }])
-     //.value('baseUrl', 'http://localhost:8870/');
+    //.value('baseUrl', 'http://localhost:8870/');
     .value('baseUrl', 'http://112.74.126.176:8899/');
 
 
