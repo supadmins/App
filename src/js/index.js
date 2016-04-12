@@ -1,7 +1,9 @@
 angular.module('yyzWebApp', [
     'ui.router', 'oc.lazyLoad', 'yyzDirectiveMod', 'yyzServiceMod', 'yyzAServiceMod',
     'yyzBServiceMod'])
-    .run(['$rootScope', '$window', '$state', function ($rootScope, $window, $state) {
+    .run(['$rootScope', '$window', '$state', 'navBar', function ($rootScope, $window, $state, navBar) {
+        $rootScope.navBar = navBar.customer;
+
         //注册路由变更事件
         $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             $window.scrollTo(0, 0);
@@ -73,7 +75,7 @@ angular.module('yyzWebApp', [
             })
             //订单状态
             .state('orderStatus', {
-                url: "/orderStatus",
+                url: "/orderStatus?id",
                 views: {
                     "lazyLoadView": {
                         controller: 'orderStatusCtrl',
@@ -636,7 +638,7 @@ angular.module('yyzWebApp', [
                 }
             })
     }])
-    //.value('baseUrl', 'http://localhost:8870/');
-    .value('baseUrl', 'http://112.74.126.176:8899/');
+    .value('baseUrl', 'http://localhost:8870/');
+    //.value('baseUrl', 'http://112.74.126.176:8899/');
 
 

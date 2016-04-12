@@ -85,9 +85,68 @@ angular.module('yyzServiceMod', [])
                 return $http.get(baseUrl + 'api/Product/ShopProductTypeAndProduct', {
                     params: params
                 });
+            },
+            getComments: function (params) {
+                params = params || {};
+
+                return $http.get(baseUrl + 'api/Order/ShopGodCommentList', {
+                    params: params
+                });
             }
         };
     }])
+    .factory('bill', ['http', 'baseUrl', function ($http, baseUrl) {
+        return {
+
+        };
+    }])
+    .factory('invite', ['$http', 'baseUrl', function ($http, baseUrl) {
+        return {
+            'inviteFriends': function () {
+                return $http.get(baseUrl + 'api/God/GetMyInviteFriends');
+            }
+        };
+    }])
+    .factory('navBar', function () {
+        return {
+            customer: [
+                {
+                    'text': '首页',
+                    'stateName': 'index'
+                },
+                {
+                    'text': 'e家店',
+                    'stateName': 'eshopList'
+                },
+                {
+                    'text': '订单',
+                    'stateName': 'orderList'
+                },
+                {
+                    'text': '我的',
+                    'stateName': 'myYyz'
+                }
+            ],
+            seller: [
+                {
+                    'text': '小店',
+                    'stateName': 'eshop'
+                },
+                {
+                    'text': 'e进货',
+                    'stateName': 'eshopList'
+                },
+                {
+                    'text': '订单',
+                    'stateName': 'orderList'
+                },
+                {
+                    'text': '我的',
+                    'stateName': 'myYyz'
+                }
+            ]
+        };
+    })
     .factory('home', ['$http', 'baseUrl', function ($http, baseUrl) {
         return {
             getShopList: function (params) {

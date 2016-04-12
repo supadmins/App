@@ -1,6 +1,6 @@
 angular.module('yyzWebApp')
     .controller('eshopListCtrl', ['$scope', function ($scope) {
-        $scope.scrollList = [1, 2, 3, 4, 5, 6, 7, 8];
+        $scope.scrollList = [1, 2];
 
         $scope.show = function (type) {
             ['categoryInfo', 'sortInfo', 'filterInfo'].forEach(function (name) {

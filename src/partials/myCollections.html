@@ -31,16 +31,16 @@
         <span class="entry">查看详情</span>
     </div>
 
-    <div class="shop" ng-repeat="item in [1, 2, 3, 4, 5]">
+    <div class="shop" ng-repeat="item in items">
         <img src="imgs/other/eshop.png" alt=""/>
-        <p class="name">e家店</p>
+        <p class="name">{{item.Name}}</p>
         <p class="grade">
             <i ng-repeat="item in [1, 2, 3, 4, 5]" ng-class="{'on': $index < 4}"></i>
-            月售300份
+            月售{{item.MonthlySales}}份
         </p>
         <p class="desc">
-            起送￥16
-            配送￥3
+            起送￥{{item.DeliveryStartPrice}}
+            配送￥{{item.Shipment}}
         </p>
         <span class="entry">进入店铺</span>
     </div>

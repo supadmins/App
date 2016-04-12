@@ -3,7 +3,7 @@ angular.module('yyzWebApp')
         function ($scope, $http, order, $location, $stateParams, $state) {
             $scope.id=$stateParams.id;
             if(!$scope.id){
-                alert("²ÎÊı´íÎó");
+                alert("å‚æ•°é”™è¯¯");
                 history.go(-1);
                 return;
             }

@@ -48,8 +48,8 @@ angular.module('yyzDirectiveMod', ['oc.lazyLoad'])
                             scrollArea: window,
                             domDown: {
                                 domRefresh : '<div class="dropload-load"><div class="loading"></div>努力加载中...</div>'
-                            }
-                            ,loadDownFn: function (me) {
+                            },
+                            loadDownFn: function (me) {
                                 scope.$emit('onDropload', me);
                                 me.resetload();
                             }
@@ -159,8 +159,7 @@ angular.module('yyzDirectiveMod', ['oc.lazyLoad'])
                 $(element[0]).click(function () {
                     var key = $(this).data('key');
                     if(target !== nodeName) {
-                        $(this).find(target).addClass('on');
-                        $(this).siblings().find(target).removeClass('on');
+                        $(this).find(target).toggleClass('on');
                     }else {
                         $(this).addClass('on');
                         $(this).siblings().removeClass('on');

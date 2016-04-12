@@ -26,7 +26,7 @@
     <div class="contacts">
         <p>联系人</p>
         <p class="name">
-            <input type="text" ng-model="editModel.Receiver" name="Receiver" placeholder="您的姓名" />
+            <input type="text" ng-model="model.Receiver" name="Receiver" placeholder="您的姓名" />
         </p>
         <p class="sex">
             <em class="circle on"></em>
@@ -35,30 +35,26 @@
             <span>女士</span>
         </p>
     </div>
-    <div class="addressInfo" ui-sref="search">
+    <div class="addressInfo" ng-click="linkSearch();"><!--ui-sref="search"-->
         收货地址
-        <!--<span class="province">广东省 </span>|
-        <span class="city">深圳市</span>|
-        <span class="zone">南山区</span>
-        <em class="arrowRight"></em>-->
-        <input type="text" ng-model="editModel.LocateAddress" placeholder="定位收货地址" />
+        <input type="text" ng-model="model.LocateAddress" placeholder="定位收货地址" />
     </div>
     <div class="addressInfo">
         详细地址
-        <input type="text" ng-model="editModel.Address" placeholder="请输入您的详细居住地址" />
+        <input type="text" ng-model="model.Address" placeholder="请输入您的详细居住地址" />
     </div>
     <div class="addressInfo">
         手机号码
-        <input type="text" ng-model="editModel.PhoneNumber" placeholder="配送人员联系您的电话" />
+        <input type="text" ng-model="model.PhoneNumber" placeholder="配送人员联系您的电话" />
     </div>
 </div>
-<div class="btn" ng-show="editView" ng-click="deleteAddress(editModel.Id)">删除该地址</div>
+<div class="btn" ng-show="editView" ng-click="deleteAddress(model.Id)">删除该地址</div>
 
 <div class="edit" ng-show="addView">
     <div class="contacts">
         <p>联系人</p>
         <p class="name">
-            <input type="text" ng-model="Receiver" placeholder="您的姓名" />
+            <input type="text" ng-model="model.Receiver" placeholder="您的姓名" />
         </p>
         <p class="sex">
             <em class="circle on"></em>
@@ -67,33 +63,17 @@
             <span>女士</span>
         </p>
     </div>
-    <div class="addressInfo" ui-sref="search">
+    <div class="addressInfo" ng-click="linkSearch();">
         收货地址
-        <!--<span class="province">广东省 </span>|
-        <span class="city">深圳市</span>|
-        <span class="zone">南山区</span>
-        <em class="arrowRight"></em>-->
-        <input type="text" placeholder="定位收货地址" ng-model="LocateAddress" />
+        <input type="text" placeholder="定位收货地址" ng-model="model.LocateAddress" />
     </div>
     <div class="addressInfo">
         详细地址
-        <input type="text" ng-model="Address" placeholder="请输入您的详细居住地址" />
+        <input type="text" ng-model="model.Address" placeholder="请输入您的详细居住地址" />
     </div>
     <div class="addressInfo">
         手机号码
-        <input type="text" ng-model="PhoneNumber" placeholder="配送人员联系您的电话" />
+        <input type="text" ng-model="model.PhoneNumber" placeholder="配送人员联系您的电话" />
     </div>
 </div>
 
-<!--<div class="addressView" ng-if="false">
-    <ul class="ul1">
-        <li ng-repeat="item in addressArray" ng-bind="item"></li>
-    </ul>
-
-    <ul>
-        <li>广东市</li>
-        <li>韶关市</li>
-        <li>深圳市</li>
-        <li>珠海市</li>
-    </ul>
-</div>-->

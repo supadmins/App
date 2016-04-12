@@ -4,7 +4,7 @@ angular.module('yyzWebApp')
             user.logout()
                 .success(function (data) {
                     if(data.ResultStatus) {
-                        $state.go('index');
+                        $state.back();
                     }
                 });
         };

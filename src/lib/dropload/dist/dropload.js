@@ -41,7 +41,7 @@
                 domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
                 domNoData  : '<div class="dropload-noData">暂无数据</div>'
             },
-            autoLoad : true,                                                     // 自动加载
+            autoLoad : false,                                                     // 自动加载
             distance : 50,                                                       // 拉动距离
             threshold : '',                                                      // 提前加载距离
             loadUpFn : '',                                                       // 上方function
@@ -74,7 +74,7 @@
             me._scrollContentHeight = me.$element[0].scrollHeight;
             me._scrollWindowHeight = me.$element.height();
         }
-        fnAutoLoad(me);
+        //fnAutoLoad(me);
 
         // 窗口调整
         $win.on('resize',function(){

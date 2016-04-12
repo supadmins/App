@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="lib/dropload/dist/dropload.css" inline/>
 <link rel="stylesheet" href="css/eshop.css" type="text/css" inline />
 
 <div class="header">
@@ -24,13 +25,13 @@
 </div>
 
 <nav>
-    <ul>
-        <li class="active">商品</li>
+    <ul yyz-select-uniqe="li">
+        <li class="on">商品</li>
         <li>评价</li>
     </ul>
 </nav>
 
-<div class="hotCategory">
+<div ng-show="goodsView" class="hotCategory">
     <p>
         <i></i>
         热销分类
@@ -38,7 +39,7 @@
     <img src="imgs/eshop/quang.png" ng-click="showVouchers();" class="quang" alt=""/>
 </div>
 
-<div class="wrapper">
+<div ng-show="goodsView" class="wrapper">
     <div class="content">
         <div class="left">
             <ul>
@@ -250,6 +251,41 @@
     </div>
 </div>
 
+<div ng-if="commentsView" class="comments">
+    <div class="filerArea">
+        <ul>
+            <li class="on"><span>全部(14)</span></li>
+            <li><span>好评(14)</span></li>
+            <li><span>中评(0)</span></li>
+            <li><span>差评(0)</span></li>
+        </ul>
+    </div>
+    <div id="scroller" yyz-dropload>
+        <div class="comment" ng-repeat="item in commentList track by $index">
+            <img class="headerImg" src="imgs/returnGoods/header.png" alt=""/>
+            <p class="uname">
+                {{item.GodName}}
+                <span ng-bind="item.GodCommentDateTime | date: 'yyyy-MM-dd H:mm:ss'"></span>
+            </p>
+            <p class="grade">
+                <em ng-repeat="item1 in [1, 2, 3, 4, 5]" ng-class="{'on': $index < item.GodCommentLevel}"></em>
+                送货速度：29分钟
+            </p>
+            <p class="text" ng-bind="item.GodComment">
+            </p>
+            <div class="reply" ng-if="item.ShopReplyComment">
+                <p class="time">
+                    店家回复:
+                    <span>2015-12-21 16:35</span>
+                </p>
+                <p>
+                    感谢您的评价，我们会不断的努力，争取让每一
+                    位顾客满意，您的支持是我们最大的动力。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

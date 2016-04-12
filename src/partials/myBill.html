@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="css/myBill.css" type="text/css" inline />
 
-<div ng-show="false">
+<div ng-show="content">
     <header class="ng-scope">
         <span>
             <em class="arroLeft"></em>
@@ -11,7 +11,7 @@
 
     <div class="body">
         <ul>
-            <li>
+            <li ng-click="content=bill=false;houston=true;">
                 进账单
                 <em class="arrorRight"></em>
             </li>
@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<div ng-show="false">
+<div ng-show="houston">
     <header class="ng-scope">
         <span>
             <em class="arroLeft"></em>
@@ -44,12 +44,12 @@
         <p>
             充值
             <span>(收入)</span>
-            <span>+ 68.00</span>
+            <span class="number">+ 68.00</span>
         </p>
     </div>
 </div>
 
-<div ng-show="true">
+<div ng-show="bill">
     <header class="ng-scope">
         <span>
             <em class="arroLeft"></em>

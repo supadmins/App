@@ -1,5 +1,5 @@
 angular.module('yyzWebApp')
-    .controller('myAddressCtrl', ['$scope', '$http', 'addressHelper', 'address', function ($scope, $http, addressHelper, address) {
+    .controller('myAddressCtrl', ['$scope', '$http', '$state', 'addressHelper', 'address', function ($scope, $http, $state, addressHelper, address) {
 
         initShowView();
         $scope.editAddress = function (item) {
@@ -7,7 +7,8 @@ angular.module('yyzWebApp')
             $scope.editView = true;
             $scope.title = '编辑地址';
             $scope.fname = '保存';
-            addressHelper.addressItem = $scope.editModel = item;
+            //addressHelper.addressItem =
+            $scope.model = item;
             addressHelper.showView = "editView";
         };
 
@@ -29,8 +30,8 @@ angular.module('yyzWebApp')
             }
             else {
                 var paramsModel = {};
-                if ($scope.editModel) {
-                    paramsModel = $scope.editModel;
+                if ($scope.model) {
+                    paramsModel = $scope.model;
                 }
                 else {
                     var params = {
@@ -46,43 +47,60 @@ angular.module('yyzWebApp')
             }
         };
 
+        //获取列表
         function getMyAddressList() {
             address.getAddressList().success(function (data) {
                 if (data.ResultStatus) {
                     $scope.items = data.ResultObject;
                 } else {
-                    //alert(data.ResultMessage)
+                    alert("请求失败");
                 }
             });
         }
 
-
+        //保存地址
         function saveAddress(model) {
             if (model.Id) {
-                address.editAddress(model).then(function (res) { })
+                address.editAddress(model).success(function (data) {
+                    if (data.ResultStatus) {
+                        alert("成功");
+                    } else {
+                        alert("失败");
+                    }
+                })
             }
             else {
-                address.addAddress(model).then(function (res) {
-
+                address.addAddress(model).success(function (data) {
+                    if (data.ResultStatus) {
+                        alert("成功");
+                    } else {
+                        alert("失败");
+                    }
                 })
             }
         }
 
-
+        //删除地址
         $scope.deleteAddress = function (id) {
-            address.deleteAddress(id).then(function (res) {
-
+            address.deleteAddress(id).success(function (data) {
+                if (data.ResultStatus) {
+                    alert("成功");
+                } else {
+                    alert("失败");
+                }
             })
         }
 
         function initShowView() {
             if (addressHelper.showView == 'addView') {
+                addressHelper.addressItem.LocateAddress = addressHelper.searchViewValue;
+                $scope.model = addressHelper.addressItem;
                 $scope.addView = true; $scope.contentView = $scope.edit = false;
                 $scope.fname = '保存';
             }
             else if (addressHelper.showView == 'editView') {
                 addressHelper.addressItem.LocateAddress = addressHelper.searchViewValue;
-                $scope.editModel = addressHelper.addressItem;
+                $scope.model = addressHelper.addressItem;
                 $scope.editView = true; $scope.contentView = $scope.addView = false;
                 $scope.title = '编辑地址';
                 $scope.fname = '保存';
@@ -95,5 +113,11 @@ angular.module('yyzWebApp')
                 getMyAddressList();
             }
 
+        }
+
+        //跳转到地址定位页面
+        $scope.linkSearch = function () {
+            addressHelper.addressItem = $scope.model;
+            $state.go("search");
         }
     }]);

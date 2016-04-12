@@ -280,17 +280,32 @@
 
 <div class="footer">
     <ul>
-        <li ui-sref="index" class="active">
-            首页
-        </li>
-        <li ui-sref="eshopList">
-            e家店
-        </li>
-        <li ui-sref="orderList">
-            订单
-        </li>
-        <li ui-sref="myYyz">
-            我的
+        <li ng-repeat="item in navBar" ui-sref="{{item.stateName}}" ng-class="{'active': item.text=='首页' || item.text=='小店'}" ng-bind="item.text">
         </li>
     </ul>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
