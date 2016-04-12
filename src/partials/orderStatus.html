@@ -1,15 +1,15 @@
 <link rel="stylesheet" href="css/orderStatus.css" type="text/css" inline />
 <div class="wrapper">
-    <div class="item" ng-repeat="item in [1, 2, 3, 4, 5]">
+    <div class="item" ng-repeat="item in items">
         <span class="icon">
             <em></em>
         </span>
         <div class="content">
             <p>
-                订单提交成功
-                <span class="time">2016-03-13 14:37</span>
+                <span ng-bind="item.StatusProcess">订单提交成功</span>
+                <span class="time" ng-bind="item.CreateTime|date:'yy-MM-dd mm:hh'">2016-03-13 14:37</span>
             </p>
-            <p class="desc">单号:1409465664701，请耐心等待商家确认</p>
+            <p class="desc" ng-bind="item.Remark">单号:1409465664701，请耐心等待商家确认</p>
             <em class="triangle"></em>
         </div>
     </div>
@@ -17,13 +17,13 @@
 
 <div class="bottom">
     <ul>
-        <li>
+        <li ui-sref="eshop({id:items.Id})">
             再来一单
         </li>
-        <li>
+        <li ui-sref="addEvaluate({id:items.Id})">
             评价
         </li>
-        <li>
+        <li ui-sref="({id:item.ShopId})">
             猜你爱吃
         </li>
     </ul>
