@@ -3,6 +3,9 @@ angular.module('yyzWebApp', [
     'yyzBServiceMod'])
     .run(['$rootScope', '$window', '$state', 'navBar', function ($rootScope, $window, $state, navBar) {
         $rootScope.navBar = navBar.customer;
+        $rootScope.customer = true;
+        $rootScope.seller = false;
+        $rootScope.fname = '去卖家中心';
 
         //注册路由变更事件
         $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
